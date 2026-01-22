@@ -44,15 +44,7 @@
 body { background:linear-gradient(180deg, #f9f9f9 0%, #e0f7f1 100%); color:#111; line-height:1.6; scroll-behavior:smooth; overflow-x:hidden; position:relative; transition: background 0.3s, color 0.3s; }
 
 /* Header */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
 header h2 { font-weight:700; color:#25d366; }
 #nightModeToggle { padding:0.5rem 1rem; border:none; border-radius:5px; cursor:pointer; background:#25d366; color:#fff; font-weight:600; transition:0.3s; }
 #nightModeToggle:hover { background:#128c7e; }
@@ -207,16 +199,17 @@ body.dark-mode .trust-item h2, body.dark-mode .trust-item p, body.dark-mode foot
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+// Initialize AOS
 AOS.init({ duration:1000, once:true });
 
-// Night Mode
+// Night Mode Toggle
 const toggle = document.getElementById('nightModeToggle');
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
   toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-// Particle background
+// Particle Background
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 let particlesArray;
@@ -245,7 +238,7 @@ window.addEventListener('resize', initParticles);
 initParticles();
 animateParticles();
 
-// Animate progress bars on scroll
+// Animate Progress Bars on Scroll
 const progressBars = document.querySelectorAll('.progress');
 window.addEventListener('scroll', () => {
   document.querySelectorAll('.trust-item').forEach((item, i) => {
@@ -253,6 +246,17 @@ window.addEventListener('scroll', () => {
     if(rect.top < window.innerHeight) {
       progressBars[i].style.width = progressBars[i].parentElement.previousElementSibling.textContent.includes('100') ? '100%' : i===1?'80%':'100%';
     }
+  });
+});
+
+// Subtle Parallax Effect
+const hero = document.querySelector('.hero');
+const countryCards = document.querySelectorAll('.country-card');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  hero.style.transform = `translateY(${scrollY * 0.05}px)`;
+  countryCards.forEach((card, index) => {
+    card.style.transform = `translateY(${scrollY * 0.02 + index*0}px)`;
   });
 });
 </script>
