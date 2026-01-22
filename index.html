@@ -6,36 +6,6 @@
 <title>Global Company Formation</title>
 <meta name="description" content="Fast and reliable company formation in India, UK, USA, and Canada. 100+ companies formed with expert support.">
 
-<!-- Structured Data for SEO & Trust -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Global Company Formation",
-  "url": "https://yourwebsite.com",
-  "logo": "https://yourwebsite.com/logo.png",
-  "sameAs": ["https://www.facebook.com/yourpage","https://www.linkedin.com/company/yourcompany/"],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1234567890",
-    "contactType": "customer support",
-    "areaServed": ["IN","UK","US","CA"]
-  },
-  "review": {
-    "@type": "Review",
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "5",
-      "bestRating": "5"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Jane Doe"
-    }
-  }
-}
-</script>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -43,23 +13,19 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
 body { margin:0; padding:0; overflow-x:hidden; position:relative; background:linear-gradient(180deg, #f9f9f9 0%, #e0f7f1 100%); color:#111; line-height:1.6; scroll-behavior:smooth; transition: background 0.3s, color 0.3s; }
 
-/* Particle canvas behind everything */
 #particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
 
-/* Header */
 header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); box-shadow:0 8px 20px rgba(0,0,0,0.1); flex-wrap:nowrap; margin:0; }
 header h2 { font-weight:700; color:#25d366; }
 #nightModeToggle { padding:0.5rem 1rem; border:none; border-radius:5px; cursor:pointer; background:#25d366; color:#fff; font-weight:600; transition:0.3s; }
 #nightModeToggle:hover { background:#128c7e; }
 
-/* Hero */
 .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4rem 2rem; background:linear-gradient(135deg,#25d366 0%,#128c7e 100%); color:#fff; border-radius:1rem; margin:2rem auto; max-width:900px; box-shadow:0 15px 40px rgba(0,0,0,0.1); transition:0.3s; }
 .hero h1 { font-size:2.5rem; font-weight:700; margin-bottom:1rem; }
 .hero p { font-size:1.1rem; margin-bottom:2rem; }
 .hero a { padding:0.65rem 1.8rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s, box-shadow 0.3s; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
 .hero a:hover { background:#128c7e; transform:scale(1.05) translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
 
-/* Country Cards */
 .country-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
 .country-card { background:rgba(255,255,255,0.15); border-radius:1.5rem; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); backdrop-filter:blur(15px); text-align:center; transition:0.4s; }
 .country-card:hover { transform:translateY(-10px) scale(1.05); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
@@ -68,7 +34,6 @@ header h2 { font-weight:700; color:#25d366; }
 .country-card .learn-btn { padding:0.45rem 1.5rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s; display:inline-block; }
 .country-card .learn-btn:hover { background:#128c7e; transform:scale(1.05); }
 
-/* Trust Section with Progress Bars */
 .trust-section { display:flex; justify-content:center; gap:4rem; flex-wrap:wrap; text-align:center; margin:4rem 0; }
 .trust-item { width:150px; }
 .trust-item h2 { font-size:2rem; color:#25d366; margin-bottom:0.5rem; }
@@ -76,41 +41,36 @@ header h2 { font-weight:700; color:#25d366; }
 .progress-bar { width:100%; height:10px; background:#ddd; border-radius:5px; overflow:hidden; }
 .progress { height:10px; width:0; background:#25d366; border-radius:5px; transition: width 2s ease-in-out; }
 
-/* Testimonials */
 .testimonials { max-width:900px; margin:4rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
 .testimonial-card { background:rgba(255,255,255,0.15); backdrop-filter:blur(15px); padding:2rem; border-radius:1rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); transition:0.3s; }
 .testimonial-card:hover { transform:scale(1.03); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
 .testimonial-card img { width:50px; height:50px; border-radius:50%; margin-bottom:1rem; }
 
-/* CTA */
 .cta { text-align:center; margin:3rem 0; }
 .cta a { padding:0.8rem 2.2rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s; display:inline-block; font-size:1rem; }
 .cta a:hover { background:#128c7e; transform:scale(1.05); }
 
-/* WhatsApp */
 .whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 8px 20px rgba(0,0,0,0.2); transition:0.3s, transform 0.3s; z-index:1000; }
 .whatsapp-btn:hover { background:#128c7e; transform:scale(1.1) rotate(-5deg); }
 .whatsapp-btn img { width:32px; height:32px; }
 
-/* Footer */
 footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); box-shadow:0 -8px 20px rgba(0,0,0,0.05); }
 
-/* AOS */
 [data-aos] { opacity:0; transform:translateY(50px); transition:all 0.8s ease-out; }
 
-/* Dark Mode */
+/* Dark Mode Text Fixes */
 body.dark-mode { background:#111; color:#f9f9f9; }
 body.dark-mode .hero { background:linear-gradient(135deg,#128c7e 0%,#25d366 100%); color:#f9f9f9; }
 body.dark-mode .country-card, body.dark-mode .testimonial-card { background:rgba(255,255,255,0.05); box-shadow:0 8px 30px rgba(0,0,0,0.4); color:#f9f9f9; }
 body.dark-mode .trust-item h2, body.dark-mode .trust-item p, body.dark-mode footer { color:#f9f9f9; }
+body.dark-mode .cta a, body.dark-mode .country-card .learn-btn, body.dark-mode .whatsapp-btn, body.dark-mode #nightModeToggle { color:#fff; }
 
-/* Mobile */
 @media(max-width:768px){
   .hero { padding:3rem 1rem; margin:1rem; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
   .country-grid, .testimonials { grid-template-columns:1fr; gap:1.5rem; }
-  .trust-section { flex-direction:column; gap:2rem; }
+  .trust-section { flex-direction:column; gap:2rem; align-items:center; } /* centered trust items on mobile */
   .cta a { width:90%; text-align:center; padding:0.8rem 1.5rem; }
 }
 </style>
@@ -121,7 +81,7 @@ body.dark-mode .trust-item h2, body.dark-mode .trust-item p, body.dark-mode foot
 
 <header>
   <h2>Global Formation</h2>
-  <button id="nightModeToggle">🌙</button>
+  <button id="nightModeToggle">Night Mode</button>
 </header>
 
 <section class="hero" data-aos="fade-up">
@@ -202,17 +162,14 @@ body.dark-mode .trust-item h2, body.dark-mode .trust-item p, body.dark-mode foot
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-// Initialize AOS
 AOS.init({ duration:1000, once:true });
 
-// Night Mode Toggle
 const toggle = document.getElementById('nightModeToggle');
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
-  toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  toggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Night Mode';
 });
 
-// Particle Background
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 let particlesArray;
@@ -241,7 +198,6 @@ window.addEventListener('resize', initParticles);
 initParticles();
 animateParticles();
 
-// Animate Progress Bars on Scroll
 const progressBars = document.querySelectorAll('.progress');
 window.addEventListener('scroll', () => {
   document.querySelectorAll('.trust-item').forEach((item, i) => {
@@ -252,7 +208,6 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Subtle Parallax Effect
 const hero = document.querySelector('.hero');
 const countryCards = document.querySelectorAll('.country-card');
 window.addEventListener('scroll', () => {
