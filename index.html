@@ -17,17 +17,20 @@
   body { background:#f9f9f9; color:#111; line-height:1.6; scroll-behavior:smooth; }
 
   /* Header */
-  header { position:sticky; top:0; background:#fff; z-index:999; padding:1rem 2rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center; }
+  header { position:sticky; top:0; background:#fff; z-index:999; padding:1rem 2rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
   header h2 { font-weight:700; color:#25d366; }
-  nav a { margin-left:2rem; text-decoration:none; color:#111; font-weight:600; transition:0.3s; }
+  nav a { margin-left:2rem; text-decoration:none; color:#111; font-weight:600; transition:0.3s; position:relative; }
+  nav a.active::after { content:''; position:absolute; left:0; bottom:-5px; width:100%; height:3px; background:#25d366; border-radius:2px; }
   nav a:hover { color:#25d366; }
 
   /* Hero Section */
-  .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem; background:#ffffff; border-radius:1rem; margin:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); }
+  .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem; 
+         background:linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+         color:#fff; border-radius:1rem; margin:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:0.3s; }
   .hero h1 { font-size:3rem; font-weight:700; margin-bottom:1rem; }
-  .hero p { font-size:1.2rem; color:#555; margin-bottom:2rem; }
-  .hero a { padding:0.75rem 2rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s; }
-  .hero a:hover { background:#128c7e; }
+  .hero p { font-size:1.2rem; color:#e0f7f1; margin-bottom:2rem; }
+  .hero a { padding:0.75rem 2rem; background:#fff; color:#25d366; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s; }
+  .hero a:hover { background:#f0f0f0; transform:scale(1.05); }
 
   /* Sections */
   section { padding:6rem 2rem; }
@@ -35,14 +38,14 @@
 
   /* Services */
   .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
-  .service-card { background:#fff; border-radius:1rem; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.05); transition:0.3s; text-align:center; }
-  .service-card:hover { transform:translateY(-10px); }
+  .service-card { background:#fff; border-radius:1rem; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.05); transition:0.3s; text-align:center; cursor:pointer; }
+  .service-card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
   .service-card h3 { margin-bottom:1rem; color:#111; }
   .service-card p { color:#555; }
 
   /* WhatsApp Floating Button */
   .whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 15px rgba(0,0,0,0.2); transition:0.3s; z-index:1000; }
-  .whatsapp-btn:hover { background:#128c7e; }
+  .whatsapp-btn:hover { background:#128c7e; transform:scale(1.1); }
   .whatsapp-btn img { width:32px; height:32px; }
 
   /* Footer */
@@ -61,8 +64,8 @@
 <header>
   <h2>Global Formation</h2>
   <nav>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#contact" class="nav-link">Contact</a>
   </nav>
 </header>
 
@@ -112,10 +115,27 @@
   &copy; 2026 Global Company Formation. All rights reserved.
 </footer>
 
-<!-- AOS Animation Script -->
+<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
+  // Initialize AOS animations
   AOS.init({ duration:1000, once:true });
+
+  // Smooth scroll active link highlight
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
 </script>
 
 </body>
