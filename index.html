@@ -58,21 +58,22 @@ footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; backgrou
 
 [data-aos] { opacity:0; transform:translateY(50px); transition:all 0.8s ease-out; }
 
-/* Night Mode Text Fix */
-body.dark-mode { background:#111; color:#f9f9f9; }
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6, body.dark-mode p, body.dark-mode a, body.dark-mode span {
-  color:#f9f9f9 !important;
+/* Night Mode Background Image */
+body.dark-mode {
+  background: url('your-nightmode-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
 }
-body.dark-mode .country-card, body.dark-mode .testimonial-card { background:rgba(255,255,255,0.05); box-shadow:0 8px 30px rgba(0,0,0,0.4); }
-body.dark-mode .trust-item h2, body.dark-mode .trust-item p, body.dark-mode footer { color:#f9f9f9; }
-body.dark-mode .cta a, body.dark-mode .country-card .learn-btn, body.dark-mode .whatsapp-btn, body.dark-mode #nightModeToggle { color:#fff; }
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode p, body.dark-mode a {
+  color: inherit; /* text inherits color from image background style */
+}
 
 @media(max-width:768px){
   .hero { padding:3rem 1rem; margin:1rem; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
   .country-grid, .testimonials { grid-template-columns:1fr; gap:1.5rem; }
-  .trust-section { flex-direction:column; gap:2rem; align-items:center; } /* centered trust items on mobile */
+  .trust-section { flex-direction:column; gap:2rem; align-items:center; }
   .cta a { width:90%; text-align:center; padding:0.8rem 1.5rem; }
 }
 </style>
