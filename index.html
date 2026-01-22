@@ -30,19 +30,20 @@
   /* Hero Section */
   .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem; 
          background:linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-         color:#fff; border-radius:1.5rem; margin:2rem; box-shadow:0 15px 40px rgba(0,0,0,0.1); transition:0.3s; }
+         color:#fff; border-radius:1.5rem; margin:2rem; box-shadow:0 15px 40px rgba(0,0,0,0.1); transition:0.3s; will-change: transform; }
   .hero h1 { font-size:3rem; font-weight:700; margin-bottom:1rem; }
   .hero p { font-size:1.2rem; color:#e0f7f1; margin-bottom:2rem; }
   .hero a { padding:0.75rem 2rem; background:#fff; color:#25d366; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s, box-shadow 0.3s; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
   .hero a:hover { background:#f0f0f0; transform:scale(1.05) translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
 
   /* Sections */
-  section { padding:6rem 2rem; }
+  section { padding:6rem 2rem; will-change: transform; }
   .container { max-width:1200px; margin:0 auto; }
 
   /* Services with Glassmorphism & tilt */
   .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; perspective:1000px; }
-  .service-card { background:rgba(255,255,255,0.15); border-radius:1.5rem; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); backdrop-filter:blur(15px); transition:0.4s; text-align:center; cursor:pointer; transform-style:preserve-3d; }
+  .service-card { background:rgba(255,255,255,0.15); border-radius:1.5rem; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); backdrop-filter:blur(15px); 
+                  transition:0.4s; text-align:center; cursor:pointer; transform-style:preserve-3d; }
   .service-card:hover { transform:translateY(-10px) rotateY(5deg) rotateX(5deg) scale(1.03); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
 
   /* WhatsApp Floating Button */
@@ -76,14 +77,14 @@
 </header>
 
 <!-- Hero Section -->
-<section class="hero" data-aos="fade-up">
+<section class="hero" id="hero" data-aos="fade-up" data-speed="0.5">
   <h1>Fast & Reliable Company Formation</h1>
   <p>Register your company in India, UK, USA, or Canada with expert support and compliance assistance.</p>
   <a href="#services">Explore Services</a>
 </section>
 
 <!-- Services Section -->
-<section class="container" id="services">
+<section class="container" id="services" data-speed="0.3">
   <h2 style="text-align:center; margin-bottom:3rem;" data-aos="fade-up">Our Services</h2>
   <div class="services">
     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
@@ -106,7 +107,7 @@
 </section>
 
 <!-- Contact Section -->
-<section class="container" id="contact" data-aos="fade-up">
+<section class="container" id="contact" data-aos="fade-up" data-speed="0.2">
   <h2 style="text-align:center; margin-bottom:3rem;">Contact Us</h2>
   <p style="text-align:center;">For inquiries and support, chat with us directly on WhatsApp.</p>
 </section>
@@ -124,13 +125,12 @@
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Initialize AOS animations
+  // Initialize AOS
   AOS.init({ duration:1000, once:true });
 
   // Smooth scroll active link highlight
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-link');
-
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
@@ -143,7 +143,7 @@
     });
   });
 
-  // Particle effect
+  // Particle background
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   let particlesArray;
@@ -180,6 +180,16 @@
   window.addEventListener('resize', initParticles);
   initParticles();
   animateParticles();
+
+  // Parallax effect
+  const parallaxSections = document.querySelectorAll('[data-speed]');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset;
+    parallaxSections.forEach(section => {
+      const speed = parseFloat(section.getAttribute('data-speed'));
+      section.style.transform = `translateY(${scrollTop * speed}px)`;
+    });
+  });
 </script>
 
 </body>
