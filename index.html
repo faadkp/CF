@@ -1,86 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Company Formation</title>
-  <meta name="description" content="Fast and reliable company formation in India, UK, USA, and Canada.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset & Fonts */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-    body { background:#f9f9f9; color:#111; line-height:1.6; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Company Formation</title>
+<meta name="description" content="Fast and reliable company formation in India, UK, USA, and Canada.">
 
-    /* Container */
-    .container { max-width:1200px; margin:0 auto; padding:2rem; }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    /* Hero Section */
-    .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background:#ffffff; border-radius:1rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); }
-    .hero h1 { font-size:2.5rem; font-weight:700; margin-bottom:1rem; }
-    .hero p { font-size:1.2rem; color:#555; margin-bottom:2rem; }
-    .hero a { padding:0.75rem 2rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s; }
-    .hero a:hover { background:#128c7e; }
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    /* Services Section */
-    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin:4rem 0; }
-    .service-card { background:#fff; border-radius:1rem; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.05); transition:0.3s; text-align:center; }
-    .service-card:hover { transform:translateY(-5px); }
-    .service-card h3 { margin-bottom:1rem; color:#111; }
-    .service-card p { color:#555; }
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+  body { background:#f9f9f9; color:#111; line-height:1.6; scroll-behavior:smooth; }
 
-    /* WhatsApp Floating Button */
-    .whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 15px rgba(0,0,0,0.2); transition:0.3s; z-index:1000; }
-    .whatsapp-btn:hover { background:#128c7e; }
-    .whatsapp-btn img { width:32px; height:32px; }
+  /* Header */
+  header { position:sticky; top:0; background:#fff; z-index:999; padding:1rem 2rem; box-shadow:0 4px 15px rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center; }
+  header h2 { font-weight:700; color:#25d366; }
+  nav a { margin-left:2rem; text-decoration:none; color:#111; font-weight:600; transition:0.3s; }
+  nav a:hover { color:#25d366; }
 
-    /* Footer */
-    footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; }
+  /* Hero Section */
+  .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem; background:#ffffff; border-radius:1rem; margin:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.05); }
+  .hero h1 { font-size:3rem; font-weight:700; margin-bottom:1rem; }
+  .hero p { font-size:1.2rem; color:#555; margin-bottom:2rem; }
+  .hero a { padding:0.75rem 2rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s; }
+  .hero a:hover { background:#128c7e; }
 
-    /* Responsive */
-    @media(max-width:768px) { .hero h1 { font-size:2rem; } .hero p { font-size:1rem; } }
-  </style>
+  /* Sections */
+  section { padding:6rem 2rem; }
+  .container { max-width:1200px; margin:0 auto; }
+
+  /* Services */
+  .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+  .service-card { background:#fff; border-radius:1rem; padding:2rem; box-shadow:0 8px 20px rgba(0,0,0,0.05); transition:0.3s; text-align:center; }
+  .service-card:hover { transform:translateY(-10px); }
+  .service-card h3 { margin-bottom:1rem; color:#111; }
+  .service-card p { color:#555; }
+
+  /* WhatsApp Floating Button */
+  .whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 15px rgba(0,0,0,0.2); transition:0.3s; z-index:1000; }
+  .whatsapp-btn:hover { background:#128c7e; }
+  .whatsapp-btn img { width:32px; height:32px; }
+
+  /* Footer */
+  footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; background:#fff; box-shadow:0 -4px 15px rgba(0,0,0,0.05); }
+
+  /* Animations */
+  [data-aos] { opacity:0; transform:translateY(50px); transition:all 0.8s ease-out; }
+
+  /* Responsive */
+  @media(max-width:768px) { .hero h1 { font-size:2rem; } .hero p { font-size:1rem; } nav a { margin-left:1rem; } }
+</style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Fast & Reliable Company Formation</h1>
-    <p>Register your company in India, UK, USA, or Canada with expert support and compliance assistance.</p>
-    <a href="#services">Explore Services</a>
-  </section>
+<!-- Header -->
+<header>
+  <h2>Global Formation</h2>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- Services Section -->
-  <section class="container" id="services">
-    <h2 style="text-align:center; margin-bottom:3rem;">Our Services</h2>
-    <div class="services">
-      <div class="service-card">
-        <h3>Indian Company Formation</h3>
-        <p>Private Limited, LLP registration, ROC compliance, GST support.</p>
-      </div>
-      <div class="service-card">
-        <h3>UK Company Formation</h3>
-        <p>Quick setup of UK Ltd companies with legal compliance support.</p>
-      </div>
-      <div class="service-card">
-        <h3>USA LLC Formation</h3>
-        <p>Register your US LLC hassle-free with EIN & compliance guidance.</p>
-      </div>
-      <div class="service-card">
-        <h3>Canada Company Formation</h3>
-        <p>Professional support for incorporating Canadian companies smoothly.</p>
-      </div>
+<!-- Hero Section -->
+<section class="hero" data-aos="fade-up">
+  <h1>Fast & Reliable Company Formation</h1>
+  <p>Register your company in India, UK, USA, or Canada with expert support and compliance assistance.</p>
+  <a href="#services">Explore Services</a>
+</section>
+
+<!-- Services Section -->
+<section class="container" id="services">
+  <h2 style="text-align:center; margin-bottom:3rem;" data-aos="fade-up">Our Services</h2>
+  <div class="services">
+    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Indian Company Formation</h3>
+      <p>Private Limited, LLP registration, ROC compliance, GST support.</p>
     </div>
-  </section>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>UK Company Formation</h3>
+      <p>Quick setup of UK Ltd companies with legal compliance support.</p>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+      <h3>USA LLC Formation</h3>
+      <p>Register your US LLC hassle-free with EIN & compliance guidance.</p>
+    </div>
+    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+      <h3>Canada Company Formation</h3>
+      <p>Professional support for incorporating Canadian companies smoothly.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="whatsapp-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
-  </a>
+<!-- Contact Section -->
+<section class="container" id="contact" data-aos="fade-up">
+  <h2 style="text-align:center; margin-bottom:3rem;">Contact Us</h2>
+  <p style="text-align:center;">For inquiries and support, chat with us directly on WhatsApp.</p>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2026 Global Company Formation. All rights reserved.
-  </footer>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/YOUR_NUMBER" target="_blank" class="whatsapp-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+</a>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Global Company Formation. All rights reserved.
+</footer>
+
+<!-- AOS Animation Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration:1000, once:true });
+</script>
 
 </body>
 </html>
