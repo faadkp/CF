@@ -40,10 +40,26 @@
   section { padding:6rem 2rem; }
   .container { max-width:1200px; margin:0 auto; }
 
-  /* Services with Glassmorphism & tilt */
+  /* Services */
   .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; perspective:1000px; }
   .service-card { background:rgba(255,255,255,0.15); border-radius:1.5rem; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); backdrop-filter:blur(15px); transition:0.4s; text-align:center; cursor:pointer; transform-style:preserve-3d; }
   .service-card:hover { transform:translateY(-10px) rotateY(5deg) rotateX(5deg) scale(1.03); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
+
+  /* Testimonials */
+  .testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-top:3rem; }
+  .testimonial-card { background:rgba(255,255,255,0.2); border-radius:1.5rem; padding:2rem; backdrop-filter:blur(15px); box-shadow:0 8px 30px rgba(0,0,0,0.05); transition:0.3s; }
+  .testimonial-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.15); }
+  .testimonial-card img { width:50px; height:50px; border-radius:50%; margin-bottom:1rem; }
+
+  /* Logos / Trust */
+  .logos { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2rem; margin-top:2rem; }
+  .logos img { height:40px; opacity:0.7; transition:0.3s; }
+  .logos img:hover { opacity:1; transform:scale(1.05); }
+
+  /* CTA Section */
+  .cta { text-align:center; margin:4rem 0; }
+  .cta a { padding:1rem 3rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s; }
+  .cta a:hover { background:#128c7e; transform:scale(1.05); }
 
   /* WhatsApp Floating Button */
   .whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; 
@@ -71,6 +87,7 @@
   <h2>Global Formation</h2>
   <nav>
     <a href="#services" class="nav-link">Services</a>
+    <a href="#testimonials" class="nav-link">Testimonials</a>
     <a href="#contact" class="nav-link">Contact</a>
   </nav>
 </header>
@@ -79,7 +96,7 @@
 <section class="hero" data-aos="fade-up">
   <h1>Fast & Reliable Company Formation</h1>
   <p>Register your company in India, UK, USA, or Canada with expert support and compliance assistance.</p>
-  <a href="#services">Explore Services</a>
+  <a href="#services">Get Started Today</a>
 </section>
 
 <!-- Services Section -->
@@ -105,10 +122,44 @@
   </div>
 </section>
 
+<!-- Testimonials Section -->
+<section class="container" id="testimonials" data-aos="fade-up">
+  <h2 style="text-align:center; margin-bottom:3rem;">What Our Clients Say</h2>
+  <div class="testimonials">
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="https://via.placeholder.com/50" alt="Client">
+      <p>"Global Formation helped us register our LLC quickly and professionally!"</p>
+      <strong>- John D., USA</strong>
+    </div>
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="https://via.placeholder.com/50" alt="Client">
+      <p>"Excellent support for our Indian Pvt Ltd registration. Highly recommended."</p>
+      <strong>- Priya S., India</strong>
+    </div>
+  </div>
+</section>
+
+<!-- Trusted Logos Section -->
+<section class="container" data-aos="fade-up">
+  <h2 style="text-align:center; margin-bottom:2rem;">Trusted By</h2>
+  <div class="logos">
+    <img src="https://via.placeholder.com/100x40?text=Logo1" alt="Logo1">
+    <img src="https://via.placeholder.com/100x40?text=Logo2" alt="Logo2">
+    <img src="https://via.placeholder.com/100x40?text=Logo3" alt="Logo3">
+    <img src="https://via.placeholder.com/100x40?text=Logo4" alt="Logo4">
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta" data-aos="fade-up">
+  <h2>Ready to Form Your Company?</h2>
+  <a href="#contact">Get a Free Consultation</a>
+</section>
+
 <!-- Contact Section -->
 <section class="container" id="contact" data-aos="fade-up">
   <h2 style="text-align:center; margin-bottom:3rem;">Contact Us</h2>
-  <p style="text-align:center;">For inquiries and support, chat with us directly on WhatsApp.</p>
+  <p style="text-align:center;">Chat with us directly on WhatsApp or send us an inquiry for professional support.</p>
 </section>
 
 <!-- WhatsApp Floating Button -->
@@ -124,13 +175,10 @@
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Initialize AOS animations
   AOS.init({ duration:1000, once:true });
 
-  // Smooth scroll active link highlight
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-link');
-
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
@@ -143,7 +191,7 @@
     });
   });
 
-  // Particle effect
+  // Particle background
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   let particlesArray;
