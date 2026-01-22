@@ -6,55 +6,59 @@
 <title>Global Company Formation</title>
 <meta name="description" content="Fast and reliable company formation in India, UK, USA, and Canada. 100+ companies formed with expert support.">
 
+<!-- Structured Data for SEO & Trust -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Global Company Formation",
+  "url": "https://yourwebsite.com",
+  "logo": "https://yourwebsite.com/logo.png",
+  "sameAs": ["https://www.facebook.com/yourpage","https://www.linkedin.com/company/yourcompany/"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1234567890",
+    "contactType": "customer support",
+    "areaServed": ["IN","UK","US","CA"]
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Jane Doe"
+    }
+  }
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
 body { background:linear-gradient(180deg, #f9f9f9 0%, #e0f7f1 100%); color:#111; line-height:1.6; scroll-behavior:smooth; overflow-x:hidden; position:relative; transition: background 0.3s, color 0.3s; }
-#particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
 
-/* Header & Navigation */
+/* Header */
 header {
-  position: static;
   display: flex;
-  justify-content: space-between; /* logo left, nav right */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  flex-wrap: nowrap;
-  transition:0.3s;
 }
 header h2 { font-weight:700; color:#25d366; }
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-/* Dropdown */
-.dropdown { position:relative; display:inline-block; }
-.dropdown-content { display:none; position:absolute; background:#fff; min-width:150px; box-shadow:0 8px 16px rgba(0,0,0,0.2); border-radius:0.5rem; z-index:1000; }
-.dropdown-content a { color:#111; padding:0.5rem 1rem; text-decoration:none; display:block; }
-.dropdown-content a:hover { background:#25d366; color:#fff; }
-.dropdown:hover .dropdown-content { display:block; }
-
-/* Night Mode */
 #nightModeToggle { padding:0.5rem 1rem; border:none; border-radius:5px; cursor:pointer; background:#25d366; color:#fff; font-weight:600; transition:0.3s; }
 #nightModeToggle:hover { background:#128c7e; }
 
-/* Hero Section - Original Green Gradient */
-.hero { 
-  display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; 
-  padding:6rem 2rem; 
-  background:linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-  color:#fff; 
-  border-radius:1rem; margin:2rem auto; max-width:900px; 
-  box-shadow:0 15px 40px rgba(0,0,0,0.1); transition:0.3s; 
-}
+/* Hero */
+.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:6rem 2rem; background:linear-gradient(135deg,#25d366 0%,#128c7e 100%); color:#fff; border-radius:1rem; margin:2rem auto; max-width:900px; box-shadow:0 15px 40px rgba(0,0,0,0.1); transition:0.3s; }
 .hero h1 { font-size:2.5rem; font-weight:700; margin-bottom:1rem; }
 .hero p { font-size:1.1rem; margin-bottom:2rem; }
 .hero a { padding:0.75rem 2rem; background:#fff; color:#25d366; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s, box-shadow 0.3s; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
@@ -69,10 +73,19 @@ nav {
 .country-card .learn-btn { padding:0.5rem 1.5rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s; display:inline-block; }
 .country-card .learn-btn:hover { background:#128c7e; transform:scale(1.05); }
 
-/* Trust Section */
+/* Trust Section with Progress Bars */
 .trust-section { display:flex; justify-content:center; gap:4rem; flex-wrap:wrap; text-align:center; margin:4rem 0; }
+.trust-item { width:150px; }
 .trust-item h2 { font-size:2rem; color:#25d366; margin-bottom:0.5rem; }
-.trust-item p { font-size:1rem; color:#111; }
+.trust-item p { font-size:1rem; color:#111; margin-bottom:0.5rem; }
+.progress-bar { width:100%; height:10px; background:#ddd; border-radius:5px; overflow:hidden; }
+.progress { height:10px; width:0; background:#25d366; border-radius:5px; transition: width 2s ease-in-out; }
+
+/* Testimonials */
+.testimonials { max-width:900px; margin:4rem auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+.testimonial-card { background:rgba(255,255,255,0.15); backdrop-filter:blur(15px); padding:2rem; border-radius:1rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); transition:0.3s; }
+.testimonial-card:hover { transform:scale(1.03); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
+.testimonial-card img { width:50px; height:50px; border-radius:50%; margin-bottom:1rem; }
 
 /* CTA */
 .cta { text-align:center; margin:4rem 0; }
@@ -92,26 +105,16 @@ footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; backgrou
 
 /* Dark Mode */
 body.dark-mode { background:#111; color:#f9f9f9; }
-body.dark-mode .hero { background:linear-gradient(135deg, #128c7e 0%, #25d366 100%); color:#f9f9f9; }
-body.dark-mode .country-card { background:rgba(255,255,255,0.05); box-shadow:0 8px 30px rgba(0,0,0,0.4); color:#f9f9f9; }
-body.dark-mode .country-card p { color:#f9f9f9; }
-body.dark-mode .trust-item h2, body.dark-mode .trust-item p { color:#f9f9f9; }
-body.dark-mode footer, body.dark-mode header { background:rgba(0,0,0,0.85); color:#f9f9f9; }
-body.dark-mode nav a { color:#f9f9f9; }
-body.dark-mode nav a:hover { color:#25d366; }
+body.dark-mode .hero { background:linear-gradient(135deg,#128c7e 0%,#25d366 100%); color:#f9f9f9; }
+body.dark-mode .country-card, body.dark-mode .testimonial-card { background:rgba(255,255,255,0.05); box-shadow:0 8px 30px rgba(0,0,0,0.4); color:#f9f9f9; }
+body.dark-mode .trust-item h2, body.dark-mode .trust-item p, body.dark-mode footer { color:#f9f9f9; }
 
-/* Mobile Adjustments */
-@media(max-width:768px) {
-  header { flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: nowrap; padding:1rem; }
-  nav { flex-direction: row; gap:1rem; }
-  nav a, .dropdown { margin-left:0; }
-  #nightModeToggle { margin-left:1rem; }
+/* Mobile */
+@media(max-width:768px){
   .hero { padding:3rem 1rem; max-width:100%; margin:1rem; border-radius:1rem; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
-  .hero a { margin-top:1rem; }
-  .country-grid { grid-template-columns:1fr; gap:1.5rem; }
-  .country-card { padding:1.5rem; }
+  .country-grid, .testimonials { grid-template-columns:1fr; gap:1.5rem; }
   .trust-section { flex-direction:column; gap:2rem; }
   .cta a { width:100%; text-align:center; padding:1rem; }
 }
@@ -123,19 +126,7 @@ body.dark-mode nav a:hover { color:#25d366; }
 
 <header>
   <h2>Global Formation</h2>
-  <nav>
-    <div class="dropdown">
-      <a href="#">Services ▼</a>
-      <div class="dropdown-content">
-        <a href="india.html">India</a>
-        <a href="uk.html">UK</a>
-        <a href="usa.html">USA</a>
-        <a href="canada.html">Canada</a>
-      </div>
-    </div>
-    <a href="#contact">Contact</a>
-    <button id="nightModeToggle">🌙</button>
-  </nav>
+  <button id="nightModeToggle">🌙</button>
 </header>
 
 <section class="hero" data-aos="fade-up">
@@ -173,21 +164,37 @@ body.dark-mode nav a:hover { color:#25d366; }
 <section class="trust-section" data-aos="fade-up">
   <div class="trust-item">
     <h2>100+</h2>
-    <p>Companies Successfully Formed</p>
+    <p>Companies Formed</p>
+    <div class="progress-bar"><div class="progress" style="width:0"></div></div>
   </div>
   <div class="trust-item">
     <h2>10+</h2>
-    <p>Years of Expert Experience</p>
+    <p>Years Experience</p>
+    <div class="progress-bar"><div class="progress" style="width:0"></div></div>
   </div>
   <div class="trust-item">
     <h2>24/7</h2>
     <p>Customer Support</p>
+    <div class="progress-bar"><div class="progress" style="width:0"></div></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+    <img loading="lazy" src="https://via.placeholder.com/50" alt="John D">
+    <p>"Excellent service, formed my company in record time!"</p>
+    <h4>John D.</h4>
+  </div>
+  <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+    <img loading="lazy" src="https://via.placeholder.com/50" alt="Sarah K">
+    <p>"Highly recommend for international company formation."</p>
+    <h4>Sarah K.</h4>
   </div>
 </section>
 
 <section class="cta" id="contact" data-aos="fade-up">
   <h2>Ready to Start Your Company?</h2>
-  <a href="https://wa.me/YOUR_NUMBER" target="_blank">Get a Free Consultation</a>
+  <a href="#countries">Get a Free Consultation</a>
 </section>
 
 <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="whatsapp-btn">
@@ -237,6 +244,17 @@ function animateParticles(){
 window.addEventListener('resize', initParticles);
 initParticles();
 animateParticles();
+
+// Animate progress bars on scroll
+const progressBars = document.querySelectorAll('.progress');
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.trust-item').forEach((item, i) => {
+    const rect = item.getBoundingClientRect();
+    if(rect.top < window.innerHeight) {
+      progressBars[i].style.width = progressBars[i].parentElement.previousElementSibling.textContent.includes('100') ? '100%' : i===1?'80%':'100%';
+    }
+  });
+});
 </script>
 </body>
 </html>
