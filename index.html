@@ -17,8 +17,9 @@ body { margin:0; padding:0; overflow-x:hidden; position:relative; background:lin
 
 header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); box-shadow:0 8px 20px rgba(0,0,0,0.1); flex-wrap:nowrap; margin:0; }
 header h2 { font-weight:700; color:#25d366; }
-#nightModeToggle { padding:0.5rem 1rem; border:none; border-radius:5px; cursor:pointer; background:#25d366; color:#fff; font-weight:600; transition:0.3s; }
-#nightModeToggle:hover { background:#128c7e; }
+#nightModeToggle { padding:0.2rem; border:none; background:none; cursor:pointer; }
+#nightModeToggle img { width:28px; height:28px; transition:0.3s; }
+#nightModeToggle img:hover { transform:scale(1.1); }
 
 .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4rem 2rem; background:linear-gradient(135deg,#25d366 0%,#128c7e 100%); color:#fff; border-radius:1rem; margin:2rem auto; max-width:900px; box-shadow:0 15px 40px rgba(0,0,0,0.1); transition:0.3s; }
 .hero h1 { font-size:2.5rem; font-weight:700; margin-bottom:1rem; }
@@ -62,10 +63,6 @@ footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; backgrou
 body.dark-mode {
   background: url('your-nightmode-background.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #fff;
-}
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode p, body.dark-mode a {
-  color: inherit; /* text inherits color from image background style */
 }
 
 @media(max-width:768px){
@@ -84,7 +81,10 @@ body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode p, body.
 
 <header>
   <h2>Global Formation</h2>
-  <button id="nightModeToggle">Night Mode</button>
+  <!-- Night mode button restored as image -->
+  <button id="nightModeToggle">
+    <img src="nightmode-icon.png" alt="Toggle Night Mode">
+  </button>
 </header>
 
 <section class="hero" data-aos="fade-up">
@@ -170,7 +170,12 @@ AOS.init({ duration:1000, once:true });
 const toggle = document.getElementById('nightModeToggle');
 toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
-  toggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Night Mode';
+  const img = toggle.querySelector('img');
+  if(document.body.classList.contains('dark-mode')){
+    img.src = 'lightmode-icon.png'; // optional: swap icon
+  } else {
+    img.src = 'nightmode-icon.png';
+  }
 });
 
 const canvas = document.getElementById('particles');
