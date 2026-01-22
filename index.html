@@ -17,21 +17,23 @@ body { background:linear-gradient(180deg, #f9f9f9 0%, #e0f7f1 100%); color:#111;
 /* Header & Navigation */
 header {
   position: static;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(10px);
-  z-index: 999;
-  padding: 1rem 2rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, nav right */
   align-items: center;
-  transition: 0.3s;
-  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  flex-wrap: nowrap;
+  transition:0.3s;
 }
 header h2 { font-weight:700; color:#25d366; }
-nav { display:flex; align-items:center; flex-wrap:wrap; }
-nav a { margin-left:2rem; text-decoration:none; color:#111; font-weight:600; transition:0.3s; }
-nav a:hover { color:#25d366; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 
 /* Dropdown */
 .dropdown { position:relative; display:inline-block; }
@@ -41,7 +43,7 @@ nav a:hover { color:#25d366; }
 .dropdown:hover .dropdown-content { display:block; }
 
 /* Night Mode */
-#nightModeToggle { margin-left:2rem; padding:0.5rem 1rem; border:none; border-radius:5px; cursor:pointer; background:#25d366; color:#fff; font-weight:600; transition:0.3s; }
+#nightModeToggle { padding:0.5rem 1rem; border:none; border-radius:5px; cursor:pointer; background:#25d366; color:#fff; font-weight:600; transition:0.3s; }
 #nightModeToggle:hover { background:#128c7e; }
 
 /* Hero Section - Original Green Gradient */
@@ -100,16 +102,14 @@ body.dark-mode nav a:hover { color:#25d366; }
 
 /* Mobile Adjustments */
 @media(max-width:768px) {
-  header { flex-direction: row; justify-content: space-between; align-items: center; padding:1rem; }
-  nav { flex-direction: row; align-items: center; width:auto; margin-top:0; }
-  nav a, .dropdown { margin-left:1rem; margin-bottom:0; }
-  #nightModeToggle { margin-left:1rem; margin-top:0; }
-
+  header { flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: nowrap; padding:1rem; }
+  nav { flex-direction: row; gap:1rem; }
+  nav a, .dropdown { margin-left:0; }
+  #nightModeToggle { margin-left:1rem; }
   .hero { padding:3rem 1rem; max-width:100%; margin:1rem; border-radius:1rem; }
   .hero h1 { font-size:1.8rem; }
   .hero p { font-size:1rem; }
   .hero a { margin-top:1rem; }
-
   .country-grid { grid-template-columns:1fr; gap:1.5rem; }
   .country-card { padding:1.5rem; }
   .trust-section { flex-direction:column; gap:2rem; }
