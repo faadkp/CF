@@ -4,232 +4,162 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Company Formation</title>
-<meta name="description" content="Fast and reliable company formation in India, UK, USA, and Canada.">
+<meta name="description" content="Fast and reliable company formation in India, UK, USA, and Canada. 100+ companies formed with expert support.">
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<!-- AOS Animation Library -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-  body { background:linear-gradient(180deg, #f9f9f9 0%, #e0f7f1 100%); color:#111; line-height:1.6; scroll-behavior:smooth; overflow-x:hidden; position:relative; }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+body { background:linear-gradient(180deg, #f9f9f9 0%, #e0f7f1 100%); color:#111; line-height:1.6; scroll-behavior:smooth; overflow-x:hidden; position:relative; }
+#particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
 
-  /* Particle background */
-  #particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
+header { position:sticky; top:0; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); z-index:999; padding:1rem 2rem; box-shadow:0 8px 20px rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center; }
+header h2 { font-weight:700; color:#25d366; }
+nav a { margin-left:2rem; text-decoration:none; color:#111; font-weight:600; transition:0.3s; }
+nav a:hover { color:#25d366; }
 
-  /* Header */
-  header { position:sticky; top:0; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); z-index:999; padding:1rem 2rem; 
-           box-shadow:0 8px 20px rgba(0,0,0,0.1); display:flex; justify-content:space-between; align-items:center; transition:0.3s; }
-  header h2 { font-weight:700; color:#25d366; }
-  nav a { margin-left:2rem; text-decoration:none; color:#111; font-weight:600; transition:0.3s; position:relative; }
-  nav a.active::after { content:''; position:absolute; left:0; bottom:-5px; width:100%; height:3px; background:#25d366; border-radius:2px; }
-  nav a:hover { color:#25d366; }
+.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem; background:linear-gradient(135deg, #25d366 0%, #128c7e 100%); color:#fff; border-radius:1.5rem; margin:2rem; box-shadow:0 15px 40px rgba(0,0,0,0.1); }
+.hero h1 { font-size:3rem; font-weight:700; margin-bottom:1rem; }
+.hero p { font-size:1.2rem; margin-bottom:2rem; }
+.hero a { padding:0.75rem 2rem; background:#fff; color:#25d366; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s, box-shadow 0.3s; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+.hero a:hover { background:#f0f0f0; transform:scale(1.05) translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
 
-  /* Hero Section */
-  .hero { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem; 
-         background:linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-         color:#fff; border-radius:1.5rem; margin:2rem; box-shadow:0 15px 40px rgba(0,0,0,0.1); transition:0.3s; }
-  .hero h1 { font-size:3rem; font-weight:700; margin-bottom:1rem; }
-  .hero p { font-size:1.2rem; color:#e0f7f1; margin-bottom:2rem; }
-  .hero a { padding:0.75rem 2rem; background:#fff; color:#25d366; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s, box-shadow 0.3s; box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-  .hero a:hover { background:#f0f0f0; transform:scale(1.05) translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
+section { padding:6rem 2rem; }
+.container { max-width:1200px; margin:0 auto; }
 
-  /* Sections */
-  section { padding:6rem 2rem; }
-  .container { max-width:1200px; margin:0 auto; }
+.country-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+.country-card { background:rgba(255,255,255,0.15); border-radius:1.5rem; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); backdrop-filter:blur(15px); text-align:center; transition:0.4s; cursor:pointer; }
+.country-card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
+.country-card h3 { margin-bottom:1rem; }
 
-  /* Services */
-  .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; perspective:1000px; }
-  .service-card { background:rgba(255,255,255,0.15); border-radius:1.5rem; padding:2rem; box-shadow:0 8px 30px rgba(0,0,0,0.05); backdrop-filter:blur(15px); transition:0.4s; text-align:center; cursor:pointer; transform-style:preserve-3d; }
-  .service-card:hover { transform:translateY(-10px) rotateY(5deg) rotateX(5deg) scale(1.03); box-shadow:0 15px 40px rgba(0,0,0,0.15); }
+.trust-section { display:flex; justify-content:center; gap:4rem; flex-wrap:wrap; text-align:center; margin:4rem 0; }
+.trust-item h2 { font-size:2rem; color:#25d366; margin-bottom:0.5rem; }
+.trust-item p { font-size:1rem; color:#111; }
 
-  /* Testimonials */
-  .testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-top:3rem; }
-  .testimonial-card { background:rgba(255,255,255,0.2); border-radius:1.5rem; padding:2rem; backdrop-filter:blur(15px); box-shadow:0 8px 30px rgba(0,0,0,0.05); transition:0.3s; }
-  .testimonial-card:hover { transform:translateY(-5px); box-shadow:0 12px 30px rgba(0,0,0,0.15); }
-  .testimonial-card img { width:50px; height:50px; border-radius:50%; margin-bottom:1rem; }
+.cta { text-align:center; margin:4rem 0; }
+.cta a { padding:1rem 3rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s; }
+.cta a:hover { background:#128c7e; transform:scale(1.05); }
 
-  /* Logos / Trust */
-  .logos { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:2rem; margin-top:2rem; }
-  .logos img { height:40px; opacity:0.7; transition:0.3s; }
-  .logos img:hover { opacity:1; transform:scale(1.05); }
+.whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; box-shadow:0 8px 20px rgba(0,0,0,0.2); transition:0.3s, transform 0.3s; z-index:1000; }
+.whatsapp-btn:hover { background:#128c7e; transform:scale(1.1) rotate(-5deg); }
+.whatsapp-btn img { width:32px; height:32px; }
 
-  /* CTA Section */
-  .cta { text-align:center; margin:4rem 0; }
-  .cta a { padding:1rem 3rem; background:#25d366; color:#fff; border-radius:50px; text-decoration:none; font-weight:600; transition:0.3s, transform 0.3s; }
-  .cta a:hover { background:#128c7e; transform:scale(1.05); }
+footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); box-shadow:0 -8px 20px rgba(0,0,0,0.05); }
 
-  /* WhatsApp Floating Button */
-  .whatsapp-btn { position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; justify-content:center; align-items:center; 
-                  box-shadow:0 8px 20px rgba(0,0,0,0.2); transition:0.3s, transform 0.3s; z-index:1000; }
-  .whatsapp-btn:hover { background:#128c7e; transform:scale(1.1) rotate(-5deg); }
-  .whatsapp-btn img { width:32px; height:32px; }
-
-  /* Footer */
-  footer { text-align:center; padding:2rem; color:#777; font-size:0.9rem; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px); box-shadow:0 -8px 20px rgba(0,0,0,0.05); }
-
-  /* Animations */
-  [data-aos] { opacity:0; transform:translateY(50px); transition:all 0.8s ease-out; }
-
-  /* Responsive */
-  @media(max-width:768px) { .hero h1 { font-size:2rem; } .hero p { font-size:1rem; } nav a { margin-left:1rem; } }
+[data-aos] { opacity:0; transform:translateY(50px); transition:all 0.8s ease-out; }
 </style>
 </head>
 <body>
 
-<!-- Particle Background -->
 <canvas id="particles"></canvas>
 
-<!-- Header -->
 <header>
   <h2>Global Formation</h2>
   <nav>
-    <a href="india.html" class="nav-link">India</a>
-    <a href="uk.html" class="nav-link">UK</a>
-    <a href="usa.html" class="nav-link">USA</a>
-    <a href="canada.html" class="nav-link">Canada</a>
+    <a href="india.html">India</a>
+    <a href="uk.html">UK</a>
+    <a href="usa.html">USA</a>
+    <a href="canada.html">Canada</a>
   </nav>
 </header>
 
-
-<!-- Hero Section -->
 <section class="hero" data-aos="fade-up">
   <h1>Fast & Reliable Company Formation</h1>
   <p>Register your company in India, UK, USA, or Canada with expert support and compliance assistance.</p>
-  <a href="#services">Get Started Today</a>
+  <a href="#countries">Explore Countries</a>
 </section>
 
-<!-- Services Section -->
-<section class="container" id="services">
-  <h2 style="text-align:center; margin-bottom:3rem;" data-aos="fade-up">Our Services</h2>
-  <div class="services">
-    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-      <h3>Indian Company Formation</h3>
-      <p>Private Limited, LLP registration, ROC compliance, GST support.</p>
-    </div>
-    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-      <h3>UK Company Formation</h3>
-      <p>Quick setup of UK Ltd companies with legal compliance support.</p>
-    </div>
-    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-      <h3>USA LLC Formation</h3>
-      <p>Register your US LLC hassle-free with EIN & compliance guidance.</p>
-    </div>
-    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-      <h3>Canada Company Formation</h3>
-      <p>Professional support for incorporating Canadian companies smoothly.</p>
-    </div>
+<section class="container" id="countries" data-aos="fade-up">
+  <h2 style="text-align:center; margin-bottom:3rem;">Choose Your Country</h2>
+  <div class="country-grid">
+    <a href="india.html" class="country-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>India</h3>
+      <p>Private Limited, LLP registration, ROC compliance, GST support</p>
+    </a>
+    <a href="uk.html" class="country-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>UK</h3>
+      <p>Ltd registration, Director ID, VAT registration, compliance support</p>
+    </a>
+    <a href="usa.html" class="country-card" data-aos="fade-up" data-aos-delay="300">
+      <h3>USA</h3>
+      <p>LLC registration, EIN, Operating Agreement, compliance guidance</p>
+    </a>
+    <a href="canada.html" class="country-card" data-aos="fade-up" data-aos-delay="400">
+      <h3>Canada</h3>
+      <p>Incorporation, GST/HST registration, compliance, accounting setup</p>
+    </a>
   </div>
 </section>
 
-<!-- Testimonials Section -->
-<section class="container" id="testimonials" data-aos="fade-up">
-  <h2 style="text-align:center; margin-bottom:3rem;">What Our Clients Say</h2>
-  <div class="testimonials">
-    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-      <img src="https://via.placeholder.com/50" alt="Client">
-      <p>"Global Formation helped us register our LLC quickly and professionally!"</p>
-      <strong>- John D., USA</strong>
-    </div>
-    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-      <img src="https://via.placeholder.com/50" alt="Client">
-      <p>"Excellent support for our Indian Pvt Ltd registration. Highly recommended."</p>
-      <strong>- Priya S., India</strong>
-    </div>
+<section class="trust-section" data-aos="fade-up">
+  <div class="trust-item">
+    <h2>100+</h2>
+    <p>Companies Successfully Formed</p>
+  </div>
+  <div class="trust-item">
+    <h2>10+</h2>
+    <p>Years of Expert Experience</p>
+  </div>
+  <div class="trust-item">
+    <h2>24/7</h2>
+    <p>Customer Support</p>
   </div>
 </section>
 
-<!-- Trusted Logos Section -->
-<section class="container" data-aos="fade-up">
-  <h2 style="text-align:center; margin-bottom:2rem;">Trusted By</h2>
-  <div class="logos">
-    <img src="https://via.placeholder.com/100x40?text=Logo1" alt="Logo1">
-    <img src="https://via.placeholder.com/100x40?text=Logo2" alt="Logo2">
-    <img src="https://via.placeholder.com/100x40?text=Logo3" alt="Logo3">
-    <img src="https://via.placeholder.com/100x40?text=Logo4" alt="Logo4">
-  </div>
-</section>
-
-<!-- CTA Section -->
 <section class="cta" data-aos="fade-up">
-  <h2>Ready to Form Your Company?</h2>
-  <a href="#contact">Get a Free Consultation</a>
+  <h2>Ready to Start Your Company?</h2>
+  <a href="https://wa.me/YOUR_NUMBER" target="_blank">Get a Free Consultation</a>
 </section>
 
-<!-- Contact Section -->
-<section class="container" id="contact" data-aos="fade-up">
-  <h2 style="text-align:center; margin-bottom:3rem;">Contact Us</h2>
-  <p style="text-align:center;">Chat with us directly on WhatsApp or send us an inquiry for professional support.</p>
-</section>
-
-<!-- WhatsApp Floating Button -->
 <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="whatsapp-btn">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
 </a>
 
-<!-- Footer -->
 <footer>
   &copy; 2026 Global Company Formation. All rights reserved.
 </footer>
 
-<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration:1000, once:true });
+AOS.init({ duration:1000, once:true });
 
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particlesArray;
+function initParticles() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  particlesArray = [];
+  for(let i=0;i<80;i++){
+    particlesArray.push({
+      x: Math.random()*canvas.width,
+      y: Math.random()*canvas.height,
+      size: Math.random()*3 + 1,
+      speedX: (Math.random()-0.5)*0.5,
+      speedY: (Math.random()-0.5)*0.5
     });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-    });
+  }
+}
+function animateParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particlesArray.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fillStyle = "rgba(255,255,255,0.3)";
+    ctx.fill();
+    p.x += p.speedX;
+    p.y += p.speedY;
+    if(p.x < 0) p.x = canvas.width;
+    if(p.x > canvas.width) p.x = 0;
+    if(p.y < 0) p.y = canvas.height;
+    if(p.y > canvas.height) p.y = 0;
   });
-
-  // Particle background
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  let particlesArray;
-  function initParticles() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    particlesArray = [];
-    for(let i=0;i<80;i++){
-      particlesArray.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        size: Math.random()*3 + 1,
-        speedX: (Math.random()-0.5)*0.5,
-        speedY: (Math.random()-0.5)*0.5
-      });
-    }
-  }
-  function animateParticles(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    particlesArray.forEach(p=>{
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-      ctx.fillStyle = "rgba(255,255,255,0.3)";
-      ctx.fill();
-      p.x += p.speedX;
-      p.y += p.speedY;
-      if(p.x < 0) p.x = canvas.width;
-      if(p.x > canvas.width) p.x = 0;
-      if(p.y < 0) p.y = canvas.height;
-      if(p.y > canvas.height) p.y = 0;
-    });
-    requestAnimationFrame(animateParticles);
-  }
-  window.addEventListener('resize', initParticles);
-  initParticles();
-  animateParticles();
+  requestAnimationFrame(animateParticles);
+}
+window.addEventListener('resize', initParticles);
+initParticles();
+animateParticles();
 </script>
 
 </body>
